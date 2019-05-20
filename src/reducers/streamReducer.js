@@ -10,7 +10,10 @@ import _ from "lodash";
 export default (state = {}, action) => {
   switch (action.type) {
     case FETCH_STREAM:
-      return { ...state, [action.payload.id]: action.payload };
+    console.log('FETCH_STREAM before: ', state);
+    const y = { ...state, [action.payload.id]: action.payload };
+    console.log('FETCH_STREAM after: ', y);
+      return y;
 
     case CREATE_STREAM:
       return { ...state, [action.payload.id]: action.payload };
@@ -22,7 +25,9 @@ export default (state = {}, action) => {
       return _.omit(state, action.payload);
 
     case FETCH_STREAMS:
-      return { ...state, ..._.mapKeys(action.payload, "id") };
+       const x = { ...state, ..._.mapKeys(action.payload, "id") };
+      console.log('FETCH_STREAMS: ', x);
+      return x;
     default:
       return state;
   }
