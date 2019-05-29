@@ -37,7 +37,7 @@ class StreamList extends Component {
           {this.renderAdmin(item)}
           <i className="large middle aligned icon camera" />
           <div className="content">
-            {item.title}
+            <Link to={`/streams/${item.id}`} className="header" >{item.title}</Link>
             <div className="description">{item.description}</div>
           </div>
         </div>
